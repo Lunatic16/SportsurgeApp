@@ -2,7 +2,7 @@
   <img src="sportsurge.png" alt="Project Screenshot" width="350">
 </p>
 
-# Sportsurge — Android port of `sportsurge_links.py`
+# Sportsurge — Android port of sportsurge_links.py
 
 A sideloadable Android app that takes the Sportsurge scraper from [sportsurge_links.py](https://github.com/Lunatic16/sportsurge-ws-scraper) and rebuilds it as a Compose UI you can sideload onto a phone. Browse the Sportsurge homepage, pick a server embed, and play it through an immersive WebView that delegates the actual stream playback to the embed's own JS player.
 
