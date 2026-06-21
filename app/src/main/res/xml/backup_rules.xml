@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Sideloaded app — no Play Restore needed, exclude everything. -->
+    <exclude domain="root" />
+</full-backup-content>

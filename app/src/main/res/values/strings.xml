@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sportsurge</string>
+    <string name="title_player">Stream Player</string>
+    <string name="hint_url_label">Sportsurge watch URL</string>
+    <string name="hint_url_placeholder">https://sportsurge.ws/watch/...&lt;id&gt;</string>
+    <string name="action_get_streams">Get streams</string>
+    <string name="action_resolving">Resolving…</string>
+    <string name="action_clear">Clear</string>
+    <string name="section_streams">Available streams</string>
+    <string name="empty_hint">Paste a watch URL above and tap Get streams.</string>
+    <string name="cd_default_server">Default server</string>
+    <string name="cd_play_server">Play %1$s</string>
+    <string name="action_copy_url">Copy URL</string>
+</resources>

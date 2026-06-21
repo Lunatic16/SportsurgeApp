@@ -1,0 +1,29 @@
+# Local build image for the Sportsurge Android app.
+# Base: official gradle image (Gradle 8.10.2 + JDK 17), because the host's
+# JDK 25 breaks Gradle's Kotlin DSL parser at startup.
+# Adds: Android SDK 36 with required platform + build-tools so assembleDebug
+# can find its targets.
+FROM docker.io/gradle:8.10.2-jdk17
+
+ENV ANDROID_HOME=/opt/android-sdk
+ENV ANDROID_SDK_ROOT=/opt/android-sdk
+ENV PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
+
+# Tools pulled in: cmdline-tools (sdkmanager), Android platform 36,
+# build-tools 36.0.0 (matches platform 36). All other AndroidX / Compose /
+# Media3 dependencies are resolved at build time from Maven Central / Google.
+RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
+    cd ${ANDROID_HOME}/cmdline-tools && \
+    curl -fsSL -o cmd.zip \
+      https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip && \
+    unzip -q cmd.zip && \
+    mv cmdline-tools latest && \
+    rm cmd.zip && \
+    yes | sdkmanager --licenses > /dev/null && \
+    sdkmanager --install "platforms;android-36" "build-tools;36.0.0" \
+                       "platform-tools" > /dev/null
+
+USER gradle
+WORKDIR /home/gradle
+
+CMD ["/bin/bash"]

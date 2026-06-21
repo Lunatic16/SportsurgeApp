@@ -1,0 +1,49 @@
+# Gradle / Kotlin / Android build outputs
+.gradle/
+.kotlin/
+build/
+app/build/
+captures/
+
+# Local SDK pointer — host-specific, never check in
+local.properties
+
+# IDE / editor
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Podman / container artifacts bound into the project
+# (the host-side build dir; keep `Containerfile` and `apk-out/`)
+.container/apk-out/
+
+# Logs / temp
+*.log
+*.tmp
+hs_err_pid*
+
+# Gradle wrapper: don't redistribute the jar artifacts anyone could fetch
+# from services.gradle.org, but keep the wrapper config in git.
+# (Uncomment if you ever need to vendor a custom wrapper jar offline.)
+# gradle/wrapper/gradle-wrapper.jar
+
+# Secrets / keystores — never check signing material into source
+*.keystore
+*.jks
+release.keystore
+debug.keystore
+
+# Releases: prefer building per instructions in README.md.
+# If you decide to attach release APKs to releases, do it via
+# `gh release` rather than committing them.
+*.apk
+*.aab
+
+# OS / runtime detritus
+out/
+target/
+node_modules/
